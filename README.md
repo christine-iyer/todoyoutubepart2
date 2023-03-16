@@ -70,8 +70,6 @@ const [languages, setLanguages ] = useState(["JavaScript", "Python", "TypeScript
         const overIndex = items.indexOf(over.id);
         console.log(arrayMove(items, activeIndex, overIndex));
         return arrayMove(items, activeIndex, overIndex);
-        // items: [2, 3, 1]   0  -> 2
-        // [1, 2, 3] oldIndex: 0 newIndex: 2  -> [2, 3, 1] 
       });
       }
 ```
