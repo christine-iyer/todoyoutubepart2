@@ -132,8 +132,10 @@ export default function App(){
     
         if(active.id !== over.id) {
           setTodos((items) => {
-            const activeIndex = items.indexOf(active.id);
-            const overIndex = items.indexOf(over.id);
+            // const activeIndex = items.indexOf(active.id);
+            // const overIndex = items.indexOf(over.id);
+            const activeIndex = items.findIndex((item)=> item.title===active.id);
+            const overIndex = items.findIndex((item) => item.title === over.id);
             console.log(arrayMove(items, activeIndex, overIndex));
             return arrayMove(items, activeIndex, overIndex);
             // items: [2, 3, 1]   0  -> 2
