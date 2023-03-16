@@ -116,7 +116,7 @@ export default function App(){
           strategy={verticalListSortingStrategy}
         >
           {/* We need components that use the useSortable hook */}
-          {todos.map(todo => <SortableItem key={todo._id} id={todo.title}/>)}
+          {todos.map(todo => <SortableItem key={todo._id} id={todo.title} setTodos={setTodos}/>)}
         </SortableContext>
       </Container>
     </DndContext>
@@ -131,7 +131,7 @@ export default function App(){
         console.log("OVER :" + over.id);
     
         if(active.id !== over.id) {
-          setLanguages((items) => {
+          setTodos((items) => {
             const activeIndex = items.indexOf(active.id);
             const overIndex = items.indexOf(over.id);
             console.log(arrayMove(items, activeIndex, overIndex));
