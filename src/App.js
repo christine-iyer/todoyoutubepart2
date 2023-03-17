@@ -116,7 +116,7 @@ export default function App(){
           strategy={verticalListSortingStrategy}
         >
           {/* We need components that use the useSortable hook */}
-          {todos.map(todo => <SortableItem key={todo._id} id={todo.title} setTodos={setTodos}/>)}
+          {todos.map(todo => <SortableItem key={todo._id} id={todo.title} TodoList={TodoList}/>)}
         </SortableContext>
       </Container>
     </DndContext>
