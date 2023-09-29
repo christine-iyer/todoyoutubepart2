@@ -143,7 +143,7 @@ export default function App(){
     const [completedTodos, setCompletedTodos] = useState([])
     const [newTodo, setNewTodo] = useState({
         title: '',
-        completed: false
+        completed: ''
     })
 
     //createTodos
@@ -161,8 +161,8 @@ export default function App(){
             const todosCopy = [createdTodo,...todos]
             setTodos(todosCopy)
             setNewTodo({
-                title: '',
-                completed: false
+                title: 0,
+                completed: 0
             })
         } catch (error) {   
             console.error(error)

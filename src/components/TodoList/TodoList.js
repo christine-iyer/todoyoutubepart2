@@ -21,6 +21,7 @@ export default function TodoList ({
                 e.key === 'Enter' && createTodo()
             }}
             />
+            <hr></hr>
              <h3>Todos</h3>
         {todos.map(todo => (
             <Todo 
@@ -30,6 +31,7 @@ export default function TodoList ({
                 buttonText={'Complete'}
             />
         ))}
+          <hr></hr>
         <h3>Completed Todos</h3>
         {completedTodos.map(todo =>(
             <Todo

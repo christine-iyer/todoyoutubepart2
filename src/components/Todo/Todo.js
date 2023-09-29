@@ -17,7 +17,7 @@ return (
       <Card.Body>
         <Card.Title>{todo.title}</Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+          {todo.title} +1
         </Card.Text>
         <Button variant="primary" onClick={() => buttonAction(todo._id) }>{buttonText}</Button>
       </Card.Body>
