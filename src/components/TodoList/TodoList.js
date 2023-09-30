@@ -1,6 +1,6 @@
-
+import Todo from '../Todo/Todo'
 import styles from './TodoList.module.scss'
-const Todo = require('../Todo/Todo')
+
 export default function TodoList ({ 
     newTodo, 
     createTodo, 
@@ -21,7 +21,7 @@ export default function TodoList ({
                 e.key === 'Enter' && createTodo()
             }}
             />
-            <hr></hr>
+             <hr></hr>
              <h3>Todos</h3>
         {todos.map(todo => (
             <Todo 
@@ -30,8 +30,10 @@ export default function TodoList ({
                 buttonAction={moveToCompleted}
                 buttonText={'Complete'}
             />
+
         ))}
-          <hr></hr>
+
+        <hr></hr>
         <h3>Completed Todos</h3>
         {completedTodos.map(todo =>(
             <Todo

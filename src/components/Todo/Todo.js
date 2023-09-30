@@ -4,22 +4,21 @@ import Card from 'react-bootstrap/Card';
 
 
 export default function Todo({ todo, buttonAction, buttonText }){
-    // return(
-    //        <div className={styles.todo}>{todo.title} 
-    //                 <button className={styles.button} onClick={() => buttonAction(todo._id) }>{buttonText}</button>
-    //         </div>
-    // )
-
-
+  const truncate = (string) => {
+    const newText = string.substring(0, 3);
+    return newText;
+  };
+  
 return (
     <Card>
-      <Card.Header as="h5">{todo.title}</Card.Header>
+      <Card.Header as="h5">ID: {truncate(todo._id)}</Card.Header>
       <Card.Body>
-        <Card.Title>{todo.title}</Card.Title>
+        <Card.Title>{todo.title}{todo.title > 3 ? "🖤" : "❤️"}</Card.Title>
         <Card.Text>
-          Hi
+          
         </Card.Text>
         <Button variant="primary" onClick={() => buttonAction(todo._id) }>{buttonText}</Button>
+
       </Card.Body>
     </Card>
   );
