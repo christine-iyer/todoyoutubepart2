@@ -17,7 +17,7 @@ return (
       <Card.Body>
         <Card.Title>{todo.title}</Card.Title>
         <Card.Text>
-          {todo.title} +1
+          Hi
         </Card.Text>
         <Button variant="primary" onClick={() => buttonAction(todo._id) }>{buttonText}</Button>
       </Card.Body>

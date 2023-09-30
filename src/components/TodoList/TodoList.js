@@ -1,6 +1,6 @@
-import Todo from '../Todo/Todo'
-import styles from './TodoList.module.scss'
 
+import styles from './TodoList.module.scss'
+const Todo = require('../Todo/Todo')
 export default function TodoList ({ 
     newTodo, 
     createTodo, 

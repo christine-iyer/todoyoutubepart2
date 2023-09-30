@@ -140,11 +140,14 @@ import TodoList from './components/TodoList/TodoList'
 
 export default function App(){
     const [todos, setTodos] = useState([])
-    const [completedTodos, setCompletedTodos] = useState([])
+    const [completedTodos, setCompletedTodos] = useState(0)
+    const [count, setCount]=useState(0)
     const [newTodo, setNewTodo] = useState({
         title: '',
-        completed: ''
+        completed: false
     })
+
+
 
     //createTodos
     const createTodo = async () => {
@@ -162,7 +165,7 @@ export default function App(){
             setTodos(todosCopy)
             setNewTodo({
                 title: 0,
-                completed: 0
+                completed: false
             })
         } catch (error) {   
             console.error(error)
@@ -192,7 +195,7 @@ export default function App(){
             const index = todos.findIndex((todo) => todo._id === id)
             const todosCopy = [...todos]
             const subject = todosCopy[index]
-            subject.completed = true 
+            
             const response = await fetch(`/api/todos/${id}`, {
                 method: 'PUT',
                 headers: {
@@ -203,7 +206,7 @@ export default function App(){
             const updatedTodo = await response.json()
             const completedTDsCopy = [updatedTodo, ...completedTodos]
             setCompletedTodos(completedTDsCopy)
-            todosCopy.splice(index, 1)
+            
             setTodos(todosCopy)
         } catch (error) {
             console.error(error)
