@@ -1,5 +1,7 @@
 # To Do App 
 
+I have looked through this app and made notes as to its present condition and its potential. They are pictured below. ![](./notes.png)
+
 ## Add Sortable
 
 Sortable is an npm package for react apps that make items in an array sortable using a drag and drop library. The sortable items have to be wrapped in a sortable context which is in a react-bootstrap container. 
