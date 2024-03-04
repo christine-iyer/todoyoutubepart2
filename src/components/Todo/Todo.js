@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function Todo({ todo, buttonAction, buttonText }){
   const truncate = (string) => {
-    const newText = string.substring(0, 3);
+    const newText = string.substring(4, 9);
     return newText;
   };
   

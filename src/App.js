@@ -1,6 +1,19 @@
 import { useState, useEffect } from 'react'
+import './App.css'
 import TodoList from './components/TodoList/TodoList'
-
+import { SortableItem } from './components/SortableItem'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container  from 'react-bootstrap/Container';
+import {
+    DndContext,
+    closestCenter
+  } from "@dnd-kit/core";
+  import {
+    arrayMove,
+    SortableContext,
+    verticalListSortingStrategy
+  } from "@dnd-kit/sortable";
+  
 
 export default function App(){
     const [todos, setTodos] = useState([])
@@ -9,6 +22,7 @@ export default function App(){
         title: '',
         completed: false
     })
+
 
     //createTodos
     const createTodo = async () => {
@@ -25,7 +39,6 @@ export default function App(){
             const todosCopy = [createdTodo,...todos]
             setTodos(todosCopy)
             setNewTodo({
-                name: '',
                 title: '',
                 completed: false
             })
@@ -96,6 +109,21 @@ export default function App(){
     }, [])
     return(
         <>
+            <div>
+        <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}>
+          <Container className="p-3" style={{"width": "50%"}} align="center" >
+            <SortableContext items={todos} strategy={verticalListSortingStrategy}>
+{todos.map(todo=> <SortableItem key={todo._id} id={todo.title}/>)}
+            </SortableContext>
+          </Container>
+
+
+        </DndContext>
+
+      </div>
+
             <TodoList
             newTodo={newTodo}
             setNewTodo={setNewTodo}
@@ -107,4 +135,23 @@ export default function App(){
             />
         </>
     )
+    function handleDragEnd(event){
+        console.log("Drag End")
+        const {active,over}=event
+        console.log('active'+ active.id)
+        console.log('over' + over.id)
+        if(active.id !== over.id) {
+          setTodos((items) => {
+            const activeIndex = items.indexOf(active.id);
+            const overIndex = items.indexOf(over.id);
+            console.log(arrayMove(items, activeIndex, overIndex));
+            return arrayMove(items, activeIndex, overIndex);
+          });
+          
+        }
+      
+      
+      }
+   
+      
 }
