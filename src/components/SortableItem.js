@@ -2,7 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import {CSS} from "@dnd-kit/utilities";
 import Card from 'react-bootstrap/Card';
 
-export function SortableItem({todo}) {
+export function SortableItem(props) {
     // props.id
     // JavaScript
 
@@ -12,7 +12,7 @@ export function SortableItem({todo}) {
         setNodeRef,
         transform,
         transition
-    } = useSortable({id: todo._id});
+    } = useSortable({id: props.id});
 
     const style = {
         transform: CSS.Transform.toString(transform),
@@ -21,7 +21,7 @@ export function SortableItem({todo}) {
 
     return (
         <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            <Card body className="m-3">{todo._id}</Card>
+            <Card body className="m-3">{props.id}</Card>
         </div>
     )
 }
